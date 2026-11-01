@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './History.module.css'
 
 const PAGE_SIZE = 5
@@ -18,11 +18,9 @@ export default function History() {
     },
   ]
 
-  const sortedHistory = useMemo(() => {
-    return [...historyData].sort(
-      (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
-    )
-  }, [])
+  const sortedHistory = [...historyData].sort(
+  (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+)
 
   const totalPages = Math.max(
     1,
